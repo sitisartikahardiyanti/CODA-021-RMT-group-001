@@ -43,3 +43,7 @@ Membentuk data modeling dari dataset dengan menentukan dim dan fact table, kemud
 
 # Link Dashboard
 
+
+# Link Presentasi
+https://docs.google.com/presentation/d/1-ZU-hGHbjaDS3wAiDeY7uHt7PFouNTjzRJFl6tIXo6o/edit?usp=sharing
+
