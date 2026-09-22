@@ -1,4 +1,4 @@
-FROM apache/airflow:2.3.4
+FROM apache/airflow:2.8.1-python3.10
 
 # Install Java (OpenJDK 8 or 11 depending on your preference)
 USER root

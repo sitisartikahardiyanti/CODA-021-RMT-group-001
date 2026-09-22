@@ -1,3 +1,4 @@
-pyspark==3.1.2
-pymongo
-kagglehub
+pandas
+kagglehub[pandas-datasets]
+sqlalchemy
+psycopg2-binary

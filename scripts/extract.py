@@ -1,20 +1,30 @@
-import requests
-from datetime import datetime
+import os
 import pandas as pd
+import kagglehub
+from kagglehub import KaggleDatasetAdapter
+ 
+# Path lokasi hasil extract yang nanti digunakan untuk transform.py
+extract_result = "/opt/airflow/data/extract_result/job_salary_raw.csv"
+ 
+# Path file yang ingin diambil dari dataset Kaggle
+file_path = "job_salary_mean.csv"
+ 
+ 
+def load_data():
+    # Load dataset terbaru dari Kaggle via KaggleHub API
+    df = kagglehub.load_dataset(
+        KaggleDatasetAdapter.PANDAS,
+        "husnind/indonesia-average-job-salary",
+        file_path,
+    )
+    return df
+ 
+ 
+df = load_data()
 
-url = "https://api.coingecko.com/api/v3/simple/price"
-
-params = {
-      "ids": "bitcoin,ethereum,ripple,solana,doge",  # Cryptocurrencies to fetch
-      "vs_currencies": "usd"     # Currency to convert to
-  }
-
-
-response = requests.get(url, params=params)
-harga_crypto = []
-nama_crypto = []
-for coin in response.json().keys():
-  harga_crypto.append(response.json()[coin]['usd'])
-  nama_crypto.append(coin)
-df = pd.DataFrame({'coin_name':nama_crypto, 'coin_price':harga_crypto})
-df.to_csv('/opt/airflow/data/extract_result_crypto_pipeline.csv', index=False)
+# Otomatis buat folder tujuan dulu kalau belum ada
+os.makedirs(os.path.dirname(extract_result), exist_ok=True)
+ 
+# Simpan hasilnya ke file csv, supaya bisa dibaca oleh transform.py
+df.to_csv(extract_result, index=False)
+print(f"Data Extract berhasil disimpan di: {extract_result}")
