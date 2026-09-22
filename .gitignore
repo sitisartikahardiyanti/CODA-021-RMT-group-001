@@ -52,3 +52,6 @@ docs/_build/
 
 # Python Cache
 *.pyc
+
+# .env
+.env
