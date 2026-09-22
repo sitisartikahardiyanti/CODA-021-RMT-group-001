@@ -1,29 +1,21 @@
-# Byte-compiled / optimized / DLL files
+# Environment
+.env
+
+# Python
 __pycache__/
-dags/__pycache__/
-*.py[cod]
+*.pyc
 
-# C extensions
-*.so
+# Jupyter
+.ipynb_checkpoints/
 
-# Distribution / packaging
-bin/
-build/
-develop-eggs/
-dist/
-eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
+# Airflow
+logs/
+airflow.db
+airflow.cfg
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# OS
+.DS_Store
+Thumbs.db
 
 # Unit test / coverage reports
 .tox/
@@ -61,3 +53,6 @@ data/
 
 # Airflow logs
 logs/
+
+# IDE
+.vscode
