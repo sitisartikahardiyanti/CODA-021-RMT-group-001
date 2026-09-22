@@ -52,3 +52,12 @@ docs/_build/
 
 # Python Cache
 *.pyc
+
+# Environment variables & credentials
+.env
+
+# Results of the extract step
+data/
+
+# Airflow logs
+logs/
