@@ -30,6 +30,12 @@ with DAG('finalproject_coda021_group1_DAG',  # nama DAG
         task_id='transform',
         bash_command='sudo -u airflow python /opt/airflow/scripts/transform.py'
     )
+
+    # Validation (run validation.py) - Data Validation dengan Great Expectations
+    python_validation = BashOperator(
+        task_id='validation',
+        bash_command='sudo -u airflow python /opt/airflow/scripts/validation.py'
+    )
  
     # Load (run load.py) - masukkan Star Schema ke NeonDB
     python_load = BashOperator(
@@ -37,5 +43,5 @@ with DAG('finalproject_coda021_group1_DAG',  # nama DAG
         bash_command='sudo -E -u airflow HOME=/home/airflow python /opt/airflow/scripts/load.py'
     )
  
-# Urutan running (Extract -> Transform -> Load)
-python_extract >> python_transform >> python_load
+# Urutan running (Extract -> Transform -> Validation -> Load)
+python_extract >> python_transform >> python_validation >> python_load
