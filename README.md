@@ -42,7 +42,7 @@ Membentuk data modeling dari dataset dengan menentukan dim dan fact table, kemud
 - Siti Sartika Hardiyanti
 
 # Link Dashboard
-
+https://public.tableau.com/app/profile/anton.sujono/viz/IndonesiaJobSalaryExplorer/IndonesiaJobSalaryExplorer?publish=yes
 
 # Link Presentasi
 https://docs.google.com/presentation/d/1-ZU-hGHbjaDS3wAiDeY7uHt7PFouNTjzRJFl6tIXo6o/edit?usp=sharing
